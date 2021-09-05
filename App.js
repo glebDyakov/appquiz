@@ -6,7 +6,10 @@ import RadioButton from 'expo-radio-button'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import * as Progress from 'expo-progress';
+// import * as Progress from 'expo-progress';
+
+import * as Progress from 'react-native-progress';
+
 
 export default function App() {
 
@@ -146,8 +149,8 @@ function Lobby({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Вопрос { currentNumberQuestion } из { allQuestions }</Text>
-      {/* <Progress.Bar isIndeterminate color="blue" width={500} progressValue={0} />; */}
-      
+      {/* <Progress.Bar progressValue={'0'} />; */}
+      <Progress.Bar progress={ 1 / allQuestions * currentNumberQuestion } width={450} />
       {
       currentNumberQuestion === 1 ?
         <Image style={{ width: 250, height: 250 }} source={ questionImgOne } />
